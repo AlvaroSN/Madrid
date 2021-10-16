@@ -1,0 +1,35 @@
+<div class="flex items-center justify-between flex-wrap bg-teal-500 p-6 px-16 mb-3 bg-gray-400">
+
+  <div class="flex items-center flex-shrink-0 text-blue-600 mr-6">
+    <a href="<%= root_path %>"> <%= image_tag "escudo.png", size: "50x50" %></a>
+    <a class="font-semibold text-xl tracking-tight" href="<%= root_path %>">  21Madridistas</a>
+  </div>
+
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="lg:flex-grow">
+      <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+         href="<%= news_index_path %>">Noticias</a>
+      <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+         href="<%= players_index_path %>">Plantilla</a>
+      <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+         href="<%= players_team_path %>">Crea tu 11</a>
+      <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+         href="<%= players_pruebas_path %>">Pruebas</a>
+    </div>
+    <div>
+      <% if signed_in? %>
+        <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete, class: "inline-block text-sm px-4 py-2 leading-none border
+            font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %>
+      <% else %>
+        <a href="<%= new_user_registration_path %>" class="inline-block text-sm px-4 py-2 leading-none border font-semibold rounded border-black
+            hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 lg:mt-0">Registrarse</a>
+        <a href="<%= new_user_session_path %>" class="inline-block text-sm px-4 py-2 leading-none border font-semibold rounded border-black
+            hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0">Iniciar sesión</a>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+</nav>
+

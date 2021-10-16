@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ * *= require_tree .
+ * *= require_self
+ */
+
+html, body {
+    min-height: 100%;
+    background-color: #0871d9;
+}
+
+//Enlace de la fuente: https://fonts593.blogspot.com/2021/06/tipografia-real-madrid-2021-2022-free.html
+@font-face {
+    font-family: fuenteMadrid;
+    src:url("RealMadrid2021-22.ttf");
+//src:local("app/assets/fonts/RealMadrid2021-22.ttf");
+}
+
+.fuente {
+    font-family: fuenteMadrid;
+}
+
+hr {
+    border: 1px solid rgb(59, 130, 246);
+}
+
+.mainContainer {
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 2.5% 5% 2.5% 5%;
+    margin-left: auto;
+    margin-right: auto;
+//justify-content: center;
+    min-height: calc(100vh - 275px);
+}
+
+.deviseContainer {
+    width: 40%;
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 2.5% 5% 2.5% 5%;
+    margin: 10% 30% 10% 30%
+}
