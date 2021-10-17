@@ -1,0 +1,11 @@
+<!--<turbo-stream action="append" target="jugador">
+  <template>-->
+<% @jugador.each do |jugador| %>
+  <p> <%= jugador.name %> </p>
+  <img src="<%=jugador.photo%>" alt="<%=jugador.name%>">
+<% end %>
+<% if @jugador.empty? %>
+  <p> No hay ningún jugador </p>
+<% end %>
+<!--</template>
+</turbo-stream>-->

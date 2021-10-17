@@ -28,11 +28,10 @@ class NewsController < ApplicationController
     end
 
     def front
-      if New.last != nil
-        @noticia = New.all
-      else
+      if false
         @noticia = New.order("created_at").last(3).reverse
       end
+        @noticia = New.all
     end
 
     private

@@ -1,0 +1,27 @@
+<%= render "partials/header" %>
+
+<div class="container mainContainer text-center">
+  <h1 class="text-blue-600 text-4xl mb-5 py-10">Perfil de jugador</h1>
+
+  <div class="flex flex-row">
+    <div class="w-1/2">
+      <img src="<%=@jugador.photo%>" alt="<%=@jugador.name%>" class="mx-auto">
+    </div>
+    <div class="w-1/2 text-left">
+      <ul>
+        <li><h2> Nombre: <%= @jugador.name %> </h2></li>
+        <li> Posición: <%= @jugador.position %> </li>
+        <li> Dorsal: <%= @jugador.number %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to "Eliminar", @jugador, method: :delete, class: "inline-flex items-center h-8 px-4 m-2 text-white transition-colors
+      bg-gray-400 rounded-lg focus:shadow-outline hover:bg-red-600" %>
+    <%= link_to "Volver", players_index_path, class: "inline-flex items-center h-8 px-4 m-2 text-white transition-colors
+      bg-gray-400 rounded-lg focus:shadow-outline hover:bg-blue-600" %>
+  </div>
+</div>
+
+<%= render "partials/footer" %>

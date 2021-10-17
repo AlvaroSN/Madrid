@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace :players do
-    get 'searches/index'
-  end
+  #namespace :players do
+  #  get 'searches/index'
+  #end
 
   get 'news/front', to: "news#front"
   get 'players/index', to: "players#index"
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :news
   resources :players
+  resources :users
   devise_for :users
 
   #resources :players do

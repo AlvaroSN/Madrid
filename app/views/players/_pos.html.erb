@@ -1,0 +1,15 @@
+<div class="w-full flex flex-wrap mb-4">
+  <div class="w-full mb-5 border-b border-blue-600">
+    <h2 class="text-gray-500 text-2xl"> <%= x %>s: </h2>
+  </div>
+  <% @jugador.each do |jugador| %>
+    <% if jugador.pos == x %>
+      <div class="mb-5 w-1/4 h-auto">
+        <a href="<%= player_path(jugador.id) %>" class="text-blue-600 fuente"> <%= jugador.name %> </a>
+        <p class="text-blue-600 fuente">  </p>
+        <img src="<%=jugador.photo%>" alt="<%=jugador.name%>">
+        <!--<%= link_to "Eliminar", player_path(jugador.id), method: :delete %>-->
+      </div>
+    <% end %>
+  <% end %>
+</div>

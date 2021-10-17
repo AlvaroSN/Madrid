@@ -1,0 +1,59 @@
+<%= render "partials/header" %>
+<div class="container mainContainer w-2/3 py-4">
+  <h1 class="text-blue-600 text-2xl text-center mb-5">Redacción noticia</h1>
+
+  <%= form_with(model: @noticia, url: news_path, class: 'w-full') do |form|  %>
+
+    <div class="flex flex-wrap md:items-center mb-6">
+      <div class="w-full">
+        <%= form.label :title, "Título: ", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      </div>
+      <div class="w-full">
+        <%= form.text_field :title, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap md:items-center mb-6">
+      <div class="w-full">
+        <%= form.label :subtitle, "Subtítulo: ", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      </div>
+      <div class="w-full">
+        <%= form.text_field :subtitle, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap md:items-center mb-6">
+      <div class="w-full">
+        <%= form.label :content, "Contenido: ", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      </div>
+      <div class="w-full">
+        <%= form.text_area :content, rows: 13, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded
+        w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap md:items-center mb-6">
+      <div class="w-full">
+        <%= form.label :photo, "Enlace a la foto: ", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      </div>
+      <div class="w-full">
+        <%= form.text_field :photo, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit "Publicar", class: 'items-center px-4 py-2 m-2 text-white transition-colors bg-gray-400 rounded-lg
+      focus:shadow-outline hover:bg-blue-600 font-bold' %>
+    </div>
+
+  <% end %>
+</div>
+
+<%= render "partials/footer" %>

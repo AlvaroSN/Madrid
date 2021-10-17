@@ -1,0 +1,17 @@
+<%= render "partials/header" %>
+<div class="container mainContainer">
+  <h2 class="text-blue-600 text-4xl mb-5"> Plantilla del primer equipo</h2>
+
+  <%= render :partial => "players/pos", :locals => { :x => "Portero"} %>
+  <%= render :partial => "players/pos", :locals => { :x => "Defensa"} %>
+  <%= render :partial => "players/pos", :locals => { :x => "Centrocampista"} %>
+  <%= render :partial => "players/pos", :locals => { :x => "Delantero"} %>
+
+  <div class="text-center">
+    <a class="inline-flex items-center h-8 px-4 m-2 text-white transition-colors bg-gray-400
+      rounded-lg focus:shadow-outline hover:bg-indigo-600" href="<%= new_player_path %>">Añadir nuevo jugador</a>
+  </div>
+
+</div>
+
+<%= render "partials/footer" %>

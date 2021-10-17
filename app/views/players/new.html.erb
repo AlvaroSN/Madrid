@@ -1,0 +1,41 @@
+<%= render "partials/header" %>
+<div class="container mainContainer w-2/3 py-4">
+  <h1 class="text-blue-600 text-2xl text-center mb-5">Añadir jugador</h1>
+  <%= form_with(model: @jugador, url: players_path, class: 'w-full') do |form|  %>
+
+    <div class="flex flex-row flex-wrap md:items-center mb-6">
+      <%= form.label :name, "Nombre del jugador", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      <%= form.text_field :name, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+    </div>
+
+    <div class="flex flex-row flex-wrap md:items-center mb-6">
+      <%= form.label :position, "Posición del jugador", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      <%= form.text_field :position, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+    </div>
+
+    <div class="flex flex-row flex-wrap md:items-center mb-6">
+      <%= form.label :number, "Dorsal del jugador", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      <%= form.text_field :number, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+    </div>
+
+    <div class="flex flex-row flex-wrap md:items-center mb-6">
+      <%= form.label :photo, "Enlace a la foto del jugador", class:"text-blue-600 font-bold md:text-right
+          mb-1 md:mb-0 pr-4"%>
+      <%= form.text_field :photo, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2
+          px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600" %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit "Publicar", class: 'items-center px-4 py-2 m-2 text-white transition-colors bg-gray-400 rounded-lg
+      focus:shadow-outline hover:bg-blue-600 font-bold' %>
+    </div>
+
+  <% end %>
+</div>
+<%= render "partials/footer" %>
