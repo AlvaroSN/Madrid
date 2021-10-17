@@ -1,0 +1,16 @@
+<%= render "partials/header" %>
+<div class="container mainContainer">
+
+  <div id="finder">
+  </div>
+
+  <div>
+    <%= form_with url: search_players_path do |form| %>
+      <%= form.collection_select 'search_term', Player.where({:position => 'Portero'}), :name, :name %>
+      <%= form.submit "Search", data: {disable_with: false}%>
+    <% end %>
+  </div>
+
+
+</div>
+<%= render "partials/footer" %>

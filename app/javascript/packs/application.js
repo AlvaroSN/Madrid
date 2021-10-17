@@ -11,7 +11,6 @@ import "stylesheets/application"
 import "@hotwired/turbo-rails"
 import "@hotwired/stimulus"
 import "../controllers"
-import "controllers"
 
 Rails.start()
 Turbolinks.start()

@@ -8,20 +8,18 @@ Rails.application.routes.draw do
   get 'players/index', to: "players#index"
   get 'players/team'
   get "players/pruebas"
-  #post "players/searches/index", to: "players/searches#index"
   get "news", to: "news#index"
   get "news/plantilla"
 
   resources :news
   resources :players
-  resources :users
   devise_for :users
 
-  #resources :players do
-  #  collection do
-  #    post :search, to: "players/searches#prueba"
-  #  end
-  #end
+  resources :players do
+    collection do
+      post :search, to: "searches#prueba"
+    end
+  end
 
   root to: "news#front"
 
