@@ -2,19 +2,16 @@
 
 <div class="container mainContainer">
   <h1 class="text-blue-600 fuente text-center text-4xl"> Define tu 11 inicial </h1>
-  <div data-controller="update">
-    <button data-action="click->update#connect"> Log </button>
-  </div>
 
   <%= form_with do |form|%>
-    <div data-controller="update">
+    <div data-controller="hello">
       <div class="bg-field my-10 flex flex-row mx-auto py-5">
 
         <!-- Portero -->
         <div class="flex flex-col ml-10 w-1/4 justify-around">
           <div class="ml-10">
             <%= form.collection_select :PO, Player.where({:position => 'Portero'}), :position, :name,
-                                       {:prompt => 'Portero'}, {data: {action: "change->update#change"}}%>
+                                       {:prompt => 'Portero'}, {data: {action: "change->hello#change"}}%>
           </div>
         </div>
 

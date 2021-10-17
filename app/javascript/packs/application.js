@@ -17,8 +17,3 @@ import "@hotwired/turbo-rails"
 import "@hotwired/stimulus"
 import "../controllers"
 
-$(document).on("turbo:load", () => {
-    console.log("turbo!")
-    $('[data-toggle="tooltip"]').tooltip()
-    $('[data-toggle="popover"]').popover()
-})

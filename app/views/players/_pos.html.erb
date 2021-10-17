@@ -3,7 +3,7 @@
     <h2 class="text-gray-500 text-2xl"> <%= x %>s: </h2>
   </div>
   <% @jugador.each do |jugador| %>
-    <% if jugador.pos == x %>
+    <% if jugador.position == x %>
       <div class="mb-5 w-1/4 h-auto">
         <a href="<%= player_path(jugador.id) %>" class="text-blue-600 fuente"> <%= jugador.name %> </a>
         <p class="text-blue-600 fuente">  </p>
