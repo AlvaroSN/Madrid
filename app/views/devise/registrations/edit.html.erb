@@ -4,12 +4,6 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :name, "Nombre:", class: "block text-gray-700 text-sm font-bold mb-2"%>
-      <%= f.text_field :name, class: "shadow appearance-none border rounded w-full
-        py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-
-    <div class="field">
       <%= f.label :email, "Correo:", class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded w-full
       py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -20,32 +14,36 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.label :password, "Contraseña:", class: "block text-gray-700 text-sm font-bold mb-2"%>
+      <i>(Dejarlo en blanco para no cambiar la contraseña)</i>
+      <%= f.password_field :password, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full
+      py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em><%= @minimum_password_length %> caracteres mínimos</em>
       <% end %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :password_confirmation, "Confirmar contraseña:", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full
+      py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
 
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.label :current_password, "Contraseña actual:", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <i>(Se necesita la contraseña actual para aplicar los cambios)</i>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "shadow appearance-none border rounded w-full
+      py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Actualizar" %>
     </div>
   <% end %>
 
   <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= button_to "Borrar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
 
-  <%= link_to "Back", :back %>
+  <%= link_to "Volver al inicio", root_path %>
 </div>

@@ -18,6 +18,8 @@
     </div>
     <div>
       <% if signed_in? %>
+        <%= link_to "Editar usuario", edit_user_registration_path , class: "inline-block text-sm px-4 py-2 leading-none border
+            font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %>
         <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete, class: "inline-block text-sm px-4 py-2 leading-none border
             font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %>
       <% else %>

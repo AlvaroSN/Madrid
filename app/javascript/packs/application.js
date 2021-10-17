@@ -7,11 +7,18 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
 import "stylesheets/application"
 import "@hotwired/turbo-rails"
 import "@hotwired/stimulus"
 import "../controllers"
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+$(document).on("turbo:load", () => {
+    console.log("turbo!")
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
+})
