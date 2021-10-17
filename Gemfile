@@ -58,4 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Gemas añadidas
 gem 'rexml'
 gem 'devise'
+gem 'hotwire-rails'
+gem 'turbo-rails'
+gem 'stimulus-rails'
 

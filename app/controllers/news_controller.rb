@@ -1,5 +1,4 @@
 class NewsController < ApplicationController
-  class NoticiasController < ApplicationController
 
     def index
       @noticia = New.all
@@ -29,7 +28,11 @@ class NewsController < ApplicationController
     end
 
     def front
-      @noticia = New.order("created_at").last(3).reverse
+      if New.last != nil
+        @noticia = New.all
+      else
+        @noticia = New.order("created_at").last(3).reverse
+      end
     end
 
     private
@@ -37,5 +40,4 @@ class NewsController < ApplicationController
       params.require(:new).permit(:title,:subtitle,:content,:photo)
     end
 
-  end
 end

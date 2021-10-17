@@ -1,0 +1,54 @@
+<%= render "partials/header" %>
+<div class="container mainContainer">
+  <div class="my-3">
+    <h2 class="text-blue-600 text-4xl">Actualidad del equipo</h2>
+
+    <div class="my-3">
+
+      <%= render "partials/carousel", :locals => { :n => @noticia} %>
+
+      <div class="flex flex-row">
+
+        <div class="flex flex-col w-4/6 mr-5">
+          <div class="bg-team bg-cover h-96 w-full p-10">
+            <%= link_to "Conoce a la plantilla", players_index_path, class: "text-blue-600 text-semibold text-xl" %>
+          </div>
+        </div>
+
+        <div class="flex flex-col bg-small-field w-2/6">
+          <div class="flex justify-around items-center bg-small-field bg-cover h-96 w-full p-10">
+            <%= link_to "Crea tu 11", players_team_path, class: "text-white text-semibold text-4xl" %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--
+    <div class="flex flex-row">
+
+        <div class="relative w-2/4">
+          <p class="text-blue-600 absolute top-5 left-5">Conoce a la plantilla</p>
+          <%= link_to players_index_path do %>
+  <% image_tag "plantilla.jpeg", class: "w-auto h-full mx-auto" %>
+<% end %>
+        </div>
+
+        <div class="relative w-2/4">
+          <p class="absolute text-white text-center inset-y-1/2 w-full">Crea tu 11 incial</p>
+          <%= link_to players_team_path do %>
+  <% image_tag "campo2.png", class: "w-auto h-full mx-auto" %>
+<% end %>
+        </div>
+
+      </div>
+
+    </div>
+-->
+
+</div>
+
+<%= render "partials/footer" %>

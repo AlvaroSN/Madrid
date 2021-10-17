@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'searches/index'
   end
 
-  get 'index', to: "news#front"
+  get 'news/front', to: "news#front"
   get 'players/index', to: "players#index"
   get 'players/team'
   get "players/pruebas"
