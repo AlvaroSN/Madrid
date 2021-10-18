@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@rails/request.js"
+import * as url from "url";
 
 export default class extends Controller {
 
@@ -9,10 +10,11 @@ export default class extends Controller {
 
   prueba(event) {
     let jugador = event.target.selectedOptions[0].value
-    console.log(jugador);
-    let url = `/players/team?player=${jugador}`
-    console.log(url);
-    get(url)
+    let dir = `/players/team?player=${jugador}`
+    console.log(dir)
+
+
+
   }
 
 }
