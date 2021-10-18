@@ -1,8 +1,8 @@
 
-<% @jugador.each do |jugador| %>
+<% x.each do |jugador| %>
   <p> <%= jugador.name %> </p>
   <img src="<%=jugador.photo%>" alt="<%=jugador.name%>">
 <% end %>
-<% if @jugador.empty? %>
+<% if x.empty? %>
   <p> No hay ningún jugador </p>
 <% end %>
