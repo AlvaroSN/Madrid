@@ -10,8 +10,8 @@
         <!-- Portero -->
         <div class="flex flex-col ml-10 w-1/4 justify-around">
           <div class="ml-10">
-            <%= form.collection_select :PO, Player.where({:position => 'Portero'}), :position, :name,
-                                       {:prompt => 'Portero'}, {data: {action: "change->hello#change"}}%>
+            <%= form.collection_select :PO, Player.where({:position => 'Portero'}), :name, :name,
+                                       {:prompt => 'Portero'}, {data: {action: "change->hello#prueba"}}%>
           </div>
         </div>
 

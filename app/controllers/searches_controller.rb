@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
       respond_to do |format|
         format.turbo_stream do
           @jugador = Player.where("name LIKE :pos", pos: "#{params[:search_term]}")
-          render turbo_stream: turbo_stream.prepend( :finder, partial: "players/jugador")
+          render turbo_stream: turbo_stream.append(:finder, partial: "players/jugador")
         end
         format.html {redirect_to players_url}
       end
@@ -22,5 +22,6 @@ class SearchesController < ApplicationController
     def index
 
     end
+
 
 end
