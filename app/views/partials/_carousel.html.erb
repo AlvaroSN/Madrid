@@ -8,7 +8,7 @@
                checked="checked">
         <div class="carousel-item absolute opacity-0 bg-center slide" style="background-image:url('<%=noticia.photo%>')">
           <div class="bg-white opacity-75 p-5">
-            <%= link_to noticia.title, new_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
+            <%= link_to noticia.title, news_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
           </div>
         </div>
         <label for="carousel-3"
@@ -24,7 +24,7 @@
         <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
         <div class="carousel-item absolute opacity-0 bg-center slide" style="background-image:url('<%=noticia.photo%>')">
           <div class="bg-white opacity-75 p-5">
-            <%= link_to noticia.title, new_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
+            <%= link_to noticia.title, news_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
           </div>
         </div>
         <label for="carousel-1"
@@ -40,7 +40,7 @@
         <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
         <div class="carousel-item absolute opacity-0 slide" style="background-image:url('<%=noticia.photo%>')">
           <div class="bg-white opacity-75 p-5">
-            <%= link_to noticia.title, new_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
+            <%= link_to noticia.title, news_path(noticia.id), class: "text-blue-600 opacity-1 text-xl" %>
           </div>
         </div>
         <label for="carousel-2"
