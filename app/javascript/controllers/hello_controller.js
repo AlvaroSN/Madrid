@@ -10,7 +10,7 @@ export default class extends Controller {
 
   prueba(event) {
     let jugador = event.target.selectedOptions[0].value
-    let dir = `/players/team?player=${jugador}`
+    let dir = `/players/teamSelected?player=${jugador}`
     console.log(dir)
     Turbo.visit(dir, {action:"replace"})
   }

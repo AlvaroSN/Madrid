@@ -1,27 +1,23 @@
 Rails.application.routes.draw do
 
-  #namespace :players do
-  #  get 'searches/index'
-  #end
-
   get 'news/front', to: "news#front"
   get 'players/index', to: "players#index"
-  get 'players/team'
   get "players/pruebas"
+  get 'players/team'
   get "news", to: "news#index"
   get "news/plantilla"
 
-  get 'players/team', to: "searches#prueba"
+  get 'players/teamSelected', :to => "searches#prueba", :as => "team"
 
   resources :news
   resources :players
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
-  resources :players do
-    collection do
-      post :search, to: "searches#prueba"
-    end
-  end
+  #resources :players do
+  #  collection do
+  #    get :team, to: "searches#prueba"
+  #  end
+  #end
 
   root to: "news#front"
 

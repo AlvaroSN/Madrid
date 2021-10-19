@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
 
     def index
+      puts "--------------ENTRO EN EL CONTROLADOR DE NOTICIAS----------------"
       @noticia = New.all
     end
 

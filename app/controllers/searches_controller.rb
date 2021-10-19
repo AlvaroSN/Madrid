@@ -1,13 +1,14 @@
 class SearchesController < ApplicationController
 
     def prueba
-      @jugador = Player.where("name LIKE :pos", pos: "#{params[:PO]}")
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.update("foto", partial: "players/jugador", locals:{x:@jugador})
-        end
-        format.html {redirect_to players_url}
-      end
+
+      puts "--------------ENTRO EN EL CONTROLADOR----------------"
+      #@jugador = Player.where("name LIKE :pos", pos: "#{params[:player]}")
+      jugadores = Player.where(name: params[:player])
+      @jugador = jugadores.first
+
+      render turbo_stream: turbo_stream.update("portero", partial: "players/jugador", locals:{x:@jugador})
+
 
     end
 

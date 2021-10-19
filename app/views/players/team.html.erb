@@ -3,6 +3,13 @@
 <div class="container mainContainer">
   <h1 class="text-blue-600 fuente text-center text-4xl"> Define tu 11 inicial </h1>
 
+  <% z = Player.all  %>
+  <% y = z.all{ |x| x["position"] == "Portero" }%>
+  <% porteros = Player.where({:position => 'Portero'}) %>
+  <% defensas = Player.where({:position => 'Defensa'}) %>
+  <% mediocentros = Player.where({:position => 'Centrocampista'}) %>
+  <% delanteros = Player.where({:position => 'Delantero'}) %>
+
   <%= form_with do |form|%>
     <div data-controller="hello">
       <div class="bg-field my-10 flex flex-row mx-auto py-5">
@@ -10,60 +17,50 @@
         <!-- Portero -->
         <div id="foto" class="flex flex-col ml-10 w-1/4 justify-around">
           <div class="ml-10">
-            <%= form.collection_select :PO, Player.where({:position => 'Portero'}), :name, :name,
-                                       {:prompt => 'Portero'}, {data: {action: "change->hello#prueba"}}%>
+            <%= form.collection_select :PO, porteros, :name, :name, {:prompt => 'Portero'}, {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "portero", target: "_top" %>
           </div>
         </div>
 
         <!-- Defensas -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div>
-            <%= form.collection_select :LI, Player.where({:position => 'Defensa'}), :position, :name,
-                                       {:prompt => 'Lateral'}%>
+            <%= form.collection_select :LI, defensas, :position, :name, {:prompt => 'Lateral'}%>
           </div>
           <div>
-            <%= form.collection_select :DCI, Player.where({:position => 'Defensa'}), :position, :name,
-                                       {:prompt => 'Central'}, class: "m-auto"%>
+            <%= form.collection_select :DCI, defensas, :position, :name, {:prompt => 'Central'}, class: "m-auto"%>
           </div>
           <div>
-            <%= form.collection_select :DCD, Player.where({:position => 'Defensa'}), :position, :name,
-                                       {:prompt => 'Central'}, class: "m-auto"%>
+            <%= form.collection_select :DCD, defensas, :position, :name, {:prompt => 'Central'}, class: "m-auto"%>
           </div>
           <div>
-            <%= form.collection_select :LD, Player.where({:position => 'Defensa'}), :position, :name,
-                                       {:prompt => 'Lateral'}, class: "m-auto"%>
+            <%= form.collection_select :LD, defensas, :position, :name, {:prompt => 'Lateral'}, class: "m-auto"%>
           </div>
         </div>
 
         <!-- Mediocentros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div class="my-28">
-            <%= form.collection_select :MCI, Player.where({:position => 'Centrocampista'}), :position, :name,
-                                       {:prompt => 'Interior'}%>
+            <%= form.collection_select :MCI, mediocentros, :position, :name, {:prompt => 'Interior'}%>
           </div>
           <div class="-mx-12">
-            <%= form.collection_select :MD, Player.where({:position => 'Centrocampista'}), :position, :name,
-                                       {:prompt => 'Pivote'}, class: "m-auto"%>
+            <%= form.collection_select :MD, mediocentros, :position, :name, {:prompt => 'Pivote'}, class: "m-auto"%>
           </div>
           <div class="my-28">
-            <%= form.collection_select :MCD, Player.where({:position => 'Centrocampista'}), :position, :name,
-                                       {:prompt => 'Interior'}, class: "m-auto"%>
+            <%= form.collection_select :MCD, mediocentros, :position, :name, {:prompt => 'Interior'}, class: "m-auto"%>
           </div>
         </div>
 
         <!-- Delanteros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div>
-            <%= form.collection_select :EI, Player.where({:position => 'Delantero'}), :position, :name,
-                                       {:prompt => 'Extremo'}%>
+            <%= form.collection_select :EI, delanteros, :position, :name, {:prompt => 'Extremo'}%>
           </div>
           <div>
-            <%= form.collection_select :DC, Player.where({:position => 'Delantero'}), :position, :name,
-                                       {:prompt => 'Delantero'}, class: "m-auto"%>
+            <%= form.collection_select :DC, delanteros, :position, :name, {:prompt => 'Delantero'}, class: "m-auto"%>
           </div>
           <div>
-            <%= form.collection_select :ED, Player.where({:position => 'Delantero'}), :position, :name,
-                                       {:prompt => 'Extremo'}, class: "m-auto"%>
+            <%= form.collection_select :ED, delanteros, :position, :name, {:prompt => 'Extremo'}, class: "m-auto"%>
           </div>
         </div>
 
