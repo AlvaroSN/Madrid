@@ -1,5 +1,6 @@
-<div class="deviseContainer">
-  <h2 class="text-center text-blue-600 text-2xl mb-5">Edit <%= resource_name.to_s.humanize %></h2>
+<div class="deviseContainer mt-16">
+  <!-- Edit  resource_name.to_s.humanize %> -->
+  <h2 class="text-center text-blue-600 text-2xl mb-5">Editar usuario</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -20,43 +21,43 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :password, "Contraseña:", class: "block text-gray-700 text-sm font-bold mb-2"%>
-      <i>(Dejarlo en blanco para no cambiar la contraseña)</i>
+      <%= f.label :password, "Contraseña:", class: "block text-gray-700 text-sm font-bold"%>
+      <i class="text-xs">(Dejarlo en blanco para no cambiar la contraseña)</i>
       <%= f.password_field :password, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full
       py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
       <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> caracteres mínimos</em>
+        <em class="text-xs text-red-600"><%= @minimum_password_length %> caracteres mínimos</em>
       <% end %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Confirmar contraseña:", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.label :password_confirmation, "Confirmar contraseña:", class: "block text-gray-700 text-sm font-bold" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow appearance-none border rounded w-full
       py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
 
     <div class="field">
-      <%= f.label :current_password, "Contraseña actual:", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <i>(Se necesita la contraseña actual para aplicar los cambios)</i>
+      <%= f.label :current_password, "Contraseña actual:", class: "block text-gray-700 text-sm font-bold" %>
+      <i class="text-xs">(Se necesita la contraseña actual para aplicar los cambios)</i>
       <%= f.password_field :current_password, autocomplete: "current-password", class: "shadow appearance-none border rounded w-full
       py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
 
-    <div>
+    <div class="field">
       <%= f.label :admin, "¿Administrador?", class: "text-gray-700 text-sm font-bold mr-5"%>
-      <%= f.check_box :admin,{}, true, false%>
+      <%= f.check_box :admin %>
     </div>
 
-    <div class="actions">
+    <div class="field text-center">
       <%= f.submit "Actualizar", class: "bg-gray-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none
       focus:shadow-outline mx-auto" %>
     </div>
   <% end %>
 
-  <p>¿Deseas desactivar tu cuenta?</p>
-  <%= button_to "Borrar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete,
-                class: "bg-gray-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-auto" %>
+  <div class="flex flex-wrap mt-5">
+    <%= link_to "Desactivar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete,
+                  class: "link w-full" %>
+    <%= link_to "Volver al inicio", root_path, class: "link w-full" %>
+  </div>
 
-
-  <%= link_to "Volver al inicio", root_path %>
 </div>

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :news
   resources :players
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   resources :players do
     collection do

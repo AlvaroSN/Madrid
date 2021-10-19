@@ -14,10 +14,12 @@
     <% end %>
   </div>
 
-  <div class="text-center">
-    <a class="inline-flex items-center h-8 px-4 m-2 text-white transition-colors bg-gray-400
-      rounded-lg focus:shadow-outline hover:bg-indigo-600" href="<%= new_news_path %>">Redactar noticia</a>
-  </div>
+  <% if current_user.admin %>
+    <div class="text-center">
+      <a class="inline-flex items-center h-8 px-4 m-2 text-white transition-colors bg-gray-400
+        rounded-lg focus:shadow-outline hover:bg-indigo-600" href="<%= new_news_path %>">Redactar noticia</a>
+    </div>
+    <% end %>
 
 </div>
 

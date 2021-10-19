@@ -1,5 +1,5 @@
 
-<div class="deviseContainer">
+<div class="deviseContainer mt-16">
   <h1 class="text-blue-600 text-2xl text-center mb-3">Iniciar sesión</h1>
 
   <!-- url por defecto: "url: session_path(resource_name)" -->
@@ -28,12 +28,12 @@
 
     <div class="actions flex items-center justify-between">
       <%= f.submit "Iniciar sesión", class: "bg-gray-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded
-      focus:outline-none focus:shadow-outline mx-auto" %>
+      focus:outline-none focus:shadow-outline mx-auto mb-5" %>
     </div>
 
   <% end %>
 
   <%= render "devise/shared/links" %>
-  <%= link_to "Volver al inicio", root_path %>
+  <%= link_to "Volver al inicio", root_path, class: "link" %>
 
 </div>

@@ -51,5 +51,18 @@ hr {
     background-color: white;
     opacity: 0.9;
     padding: 2.5% 5% 2.5% 5%;
-    margin: 10% 30% 10% 30%
+    margin: 0 30% 0 30%
+}
+
+.field{
+  margin-bottom: 1em;
+}
+
+.link {
+  color: #0871d9;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #666666;
 }
