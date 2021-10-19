@@ -11,13 +11,14 @@
   <% delanteros = Player.where({:position => 'Delantero'}) %>
 
   <%= form_with do |form|%>
-    <div data-controller="hello">
+    <div >
       <div class="bg-field my-10 flex flex-row mx-auto py-5">
 
         <!-- Portero -->
-        <div id="foto" class="flex flex-col ml-10 w-1/4 justify-around">
-          <div class="ml-10">
-            <%= form.collection_select :PO, porteros, :name, :name, {:prompt => 'Portero'}, {data: {action: "change->hello#prueba"}}%>
+        <div data-controller="hello" data-value="po" class="flex flex-col ml-10 w-1/4 justify-around">
+          <div  class="ml-10">
+            <%= form.collection_select :PO, porteros, :name, :name, {:prompt => 'Portero'},
+                                       {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "portero", target: "_top" %>
           </div>
         </div>
@@ -25,16 +26,21 @@
         <!-- Defensas -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div>
-            <%= form.collection_select :LI, defensas, :position, :name, {:prompt => 'Lateral'}%>
+            <%= form.collection_select :LI, defensas, :position, :name, {:prompt => 'Lateral'},
+                                       {data: {action: "change->hello#prueba", pos: "li"}}%>
+            <%= turbo_frame_tag "li", target: "_top" %>
           </div>
           <div>
-            <%= form.collection_select :DCI, defensas, :position, :name, {:prompt => 'Central'}, class: "m-auto"%>
+            <%= form.collection_select :DCI, defensas, :position, :name, {:prompt => 'Central'}, {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "di", target: "_top" %>
           </div>
           <div>
-            <%= form.collection_select :DCD, defensas, :position, :name, {:prompt => 'Central'}, class: "m-auto"%>
+            <%= form.collection_select :DCD, defensas, :position, :name, {:prompt => 'Central'}, {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "dd", target: "_top" %>
           </div>
           <div>
-            <%= form.collection_select :LD, defensas, :position, :name, {:prompt => 'Lateral'}, class: "m-auto"%>
+            <%= form.collection_select :LD, defensas, :position, :name, {:prompt => 'Lateral'}, {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "ld", target: "_top" %>
           </div>
         </div>
 
