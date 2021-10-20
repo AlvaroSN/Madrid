@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 
     def index
       puts "--------------ENTRO EN EL CONTROLADOR DE NOTICIAS----------------"
-      @noticia = New.all
+      @noticia = New.all.order("created_at").reverse
     end
 
     def new
@@ -29,10 +29,7 @@ class NewsController < ApplicationController
     end
 
     def front
-      if false
-        @noticia = New.order("created_at").last(3).reverse
-      end
-        @noticia = New.all
+      @noticia = New.order("created_at").last(3).reverse
     end
 
     private

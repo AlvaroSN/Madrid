@@ -7,7 +7,7 @@
       <div class="w-1/2 mb-3 p-5">
         <h2 class="text-2xl font-semibold"> <%= noticia.title %></h2>
         <p> <%= noticia.subtitle %> </p>
-        <%= link_to news_path(noticia.id) do %>
+        <%= link_to oneNew_path(noticia.id) do %>
           <img src="<%=noticia.photo%>" alt="<%=noticia.title%>" class="image" >
         <% end %>
       </div>

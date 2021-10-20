@@ -27,6 +27,13 @@ class PlayersController < ApplicationController
       redirect_to players_index_path
     end
 
+    def team
+      @porteros = Player.where({:position => 'Portero'})
+      @defensas = Player.where({:position => 'Defensa'})
+      @mediocentros = Player.where({:position => 'Centrocampista'})
+      @delanteros = Player.where({:position => 'Delantero'})
+    end
+
     private
     def params_jugador
       params.require(:player).permit(:name,:number,:position,:photo)
