@@ -16,12 +16,16 @@
 </head>
 
 <body>
-<% if notice %>
-  <p class="alert alert-success bg-green-300 text-center"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger bg-red-300 text-center"><%= alert %></p>
-<% end %>
+
+<div data-controller="hello">
+  <% if notice %>
+    <p id="mensaje" data-action="click->hello#hide" class="alert alert-success bg-green-300 text-center"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p data-action="click->hello#hide" class="alert alert-danger bg-red-300 text-center"><%= alert %></p>
+  <% end %>
+</div>
+
 <%= yield %>
 </body>
 </html>

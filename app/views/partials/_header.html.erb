@@ -13,8 +13,10 @@
          href="<%= players_index_path %>">Plantilla</a>
       <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
          href="<%= players_team_path %>">Crea tu 11</a>
-      <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-         href="<%= players_pruebas_path %>">Pruebas</a>
+      <% if signed_in? && current_user.admin %>
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+           href=<%= all_path %>>Gestión de usuarios</a>
+      <% end %>
     </div>
     <div>
       <% if signed_in? %>
