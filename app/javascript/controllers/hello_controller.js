@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   prueba(event) {
-    let pos = String (event.target.dataset.value)
+    let pos = event.target.parentElement.dataset.pos
     console.log(pos)
     let jugador = event.target.selectedOptions[0].value
     let dir = `/players/teamSelected?player=${jugador}&pos=${pos}`

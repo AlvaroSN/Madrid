@@ -8,7 +8,7 @@
   <%= render :partial => "players/pos", :locals => { :x => "Delantero"} %>
 
   <div class="text-center">
-    <% if current_user.admin %>
+    <% if signed_in? && current_user.admin %>
       <a class="inline-flex items-center h-8 px-4 m-2 text-white transition-colors bg-gray-400
       rounded-lg focus:shadow-outline hover:bg-indigo-600" href="<%= new_player_path %>">Añadir nuevo jugador</a>
     <% end %>

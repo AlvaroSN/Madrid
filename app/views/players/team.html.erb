@@ -11,62 +11,77 @@
   <% delanteros = Player.where({:position => 'Delantero'}) %>
 
   <%= form_with do |form|%>
-    <div >
+    <div data-controller="hello">
       <div class="bg-field my-10 flex flex-row mx-auto py-5">
 
         <!-- Portero -->
-        <div data-controller="hello" data-value="po" class="flex flex-col ml-10 w-1/4 justify-around">
-          <div  class="ml-10">
+        <div class="flex flex-col ml-10 w-1/4 justify-around">
+          <div  class="ml-10" data-pos="po">
             <%= form.collection_select :PO, porteros, :name, :name, {:prompt => 'Portero'},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "portero", target: "_top" %>
+            <%= turbo_frame_tag "po", target: "_top" %>
           </div>
         </div>
 
         <!-- Defensas -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
-          <div>
-            <%= form.collection_select :LI, defensas, :position, :name, {:prompt => 'Lateral'},
-                                       {data: {action: "change->hello#prueba", pos: "li"}}%>
+          <div data-pos="li">
+            <%= form.collection_select :LI, defensas, :name, :name, {:prompt => 'Lateral'},
+                                       {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "li", target: "_top" %>
           </div>
-          <div>
-            <%= form.collection_select :DCI, defensas, :position, :name, {:prompt => 'Central'}, {data: {action: "change->hello#prueba"}}%>
+          <div data-pos="di">
+            <%= form.collection_select :DCI, defensas, :name, :name, {:prompt => 'Central'},
+                                       {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "di", target: "_top" %>
           </div>
-          <div>
-            <%= form.collection_select :DCD, defensas, :position, :name, {:prompt => 'Central'}, {data: {action: "change->hello#prueba"}}%>
+          <div data-pos="dd">
+            <%= form.collection_select :DCD, defensas, :name, :name, {:prompt => 'Central'},
+                                       {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "dd", target: "_top" %>
           </div>
-          <div>
-            <%= form.collection_select :LD, defensas, :position, :name, {:prompt => 'Lateral'}, {data: {action: "change->hello#prueba"}}%>
+          <div data-pos="ld">
+            <%= form.collection_select :LD, defensas, :name, :name, {:prompt => 'Lateral'},
+                                       {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "ld", target: "_top" %>
           </div>
         </div>
 
         <!-- Mediocentros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
-          <div class="my-28">
-            <%= form.collection_select :MCI, mediocentros, :position, :name, {:prompt => 'Interior'}%>
+          <div class="" data-pos="mi">
+            <%= form.collection_select :MCI, mediocentros, :name, :name, {:prompt => 'Interior'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "mi", target: "_top" %>
           </div>
-          <div class="-mx-12">
-            <%= form.collection_select :MD, mediocentros, :position, :name, {:prompt => 'Pivote'}, class: "m-auto"%>
+          <div class="" data-pos="mc">
+            <%= form.collection_select :MD, mediocentros, :name, :name, {:prompt => 'Pivote'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "mc", target: "_top" %>
           </div>
-          <div class="my-28">
-            <%= form.collection_select :MCD, mediocentros, :position, :name, {:prompt => 'Interior'}, class: "m-auto"%>
+          <div class="" data-pos="md">
+            <%= form.collection_select :MCD, mediocentros, :name, :name, {:prompt => 'Interior'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "md", target: "_top" %>
           </div>
         </div>
 
         <!-- Delanteros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
-          <div>
-            <%= form.collection_select :EI, delanteros, :position, :name, {:prompt => 'Extremo'}%>
+          <div data-pos="ei">
+            <%= form.collection_select :EI, delanteros, :name, :name, {:prompt => 'Extremo'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "ei", target: "_top" %>
           </div>
-          <div>
-            <%= form.collection_select :DC, delanteros, :position, :name, {:prompt => 'Delantero'}, class: "m-auto"%>
+          <div data-pos="dc">
+            <%= form.collection_select :DC, delanteros, :name, :name, {:prompt => 'Delantero'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "dc", target: "_top" %>
           </div>
-          <div>
-            <%= form.collection_select :ED, delanteros, :position, :name, {:prompt => 'Extremo'}, class: "m-auto"%>
+          <div data-pos="ed">
+            <%= form.collection_select :ED, delanteros, :name, :name, {:prompt => 'Extremo'},
+                                       {data: {action: "change->hello#prueba"}}%>
+            <%= turbo_frame_tag "ed", target: "_top" %>
           </div>
         </div>
 

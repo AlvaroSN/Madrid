@@ -1,1 +1,5 @@
-<img src="<%=x.photo%>" alt="<%=x.name%>" class="w-2/5">
+<% if x == nil %>
+  <p class="text-white">No existe el jugador</p>
+<% else %>
+  <img src="<%=x.photo%>" alt="<%=x.name%>" class="w-2/6">
+<% end %>
