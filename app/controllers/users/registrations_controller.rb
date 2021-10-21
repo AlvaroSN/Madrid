@@ -73,11 +73,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def editProfile
     @usuarios = User.find(params[:id])
-    if @usuarios.update(params_usuarios)
-      redirect_to @usuarios
-    else
-      render 'editProfile'
-    end
   end
 
   def updateProfile
