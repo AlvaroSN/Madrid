@@ -18,11 +18,7 @@ export default class extends Controller {
   }
 
   hide(event) {
-    $(document).ready(function () {
-      setTimeout(function () {
-        $('#mensaje').hide();
-      }, 60000);
-    });
+
   }
 
 }

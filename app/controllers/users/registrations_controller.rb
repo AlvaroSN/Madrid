@@ -61,8 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def all
-    @usuarios = User.all.limit(1)
-    update
+    @usuarios = User.all
   end
 
 end

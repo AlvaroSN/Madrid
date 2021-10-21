@@ -18,6 +18,19 @@ class NewsController < ApplicationController
       end
     end
 
+    def edit
+      @noticia = New.find(params[:id])
+    end
+
+    def update
+      @noticia = New.find(params[:id])
+      if @noticia.update(params_noticia)
+        redirect_to @noticia
+      else
+        render 'edit'
+      end
+    end
+
     def show
       @noticia = New.find(params[:id])
     end

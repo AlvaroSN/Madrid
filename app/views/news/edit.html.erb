@@ -1,8 +1,8 @@
 <%= render "partials/header" %>
 <div class="container mainContainer w-2/3 py-4">
-  <h1 class="text-blue-600 text-2xl text-center mb-5">Redacción noticia</h1>
+  <h1 class="text-blue-600 text-2xl text-center mb-5">Editar noticia</h1>
 
-  <%= form_with(model: @noticia, url: news_index_path, class: 'w-full') do |form|  %>
+  <%= form_with(model: @noticia, url: news_path, class: 'w-full') do |form|  %>
 
     <div class="flex flex-wrap md:items-center mb-6">
       <div class="w-full">
@@ -49,7 +49,7 @@
     </div>
 
     <div class="text-center">
-      <%= form.submit "Publicar", class: 'items-center px-4 py-2 m-2 text-white transition-colors bg-gray-400 rounded-lg
+      <%= form.submit "Actualizar", class: 'items-center px-4 py-2 m-2 text-white transition-colors bg-gray-400 rounded-lg
       focus:shadow-outline hover:bg-blue-600 font-bold' %>
     </div>
 

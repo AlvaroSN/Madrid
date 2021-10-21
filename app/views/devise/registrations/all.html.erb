@@ -1,14 +1,13 @@
 <%= render "partials/header" %>
 
 <div class="container mainContainer">
-  <h1 class="text-4xl text-blue-600">Lista de usuarios</h1>
+  <h1 class="text-4xl text-blue-600 mb-5">Lista de usuarios</h1>
 
   <table>
 
     <tr>
       <td>Nombre</td>
       <td>Correo</td>
-      <td>Contraseña</td>
       <td>Creado</td>
       <td>Actualizado</td>
       <td>Admin</td>
@@ -18,10 +17,11 @@
     <tr>
       <td><%=usuario.name%></td>
       <td><%=usuario.email%></td>
-      <td><%=usuario.encrypted_password%></td>
       <td><%=usuario.created_at%></td>
       <td><%=usuario.updated_at%></td>
       <td><%=usuario.admin%></td>
+      <td><%= link_to "Editar usuario", edit_user_profile_path(usuario.id, :x => usuario) , class: "inline-block text-sm px-4 py-2 leading-none border
+            font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %></td>
     </tr>
     <% end %>
 
