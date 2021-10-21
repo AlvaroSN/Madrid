@@ -17,6 +17,19 @@ export default class extends Controller {
     Turbo.visit(dir, {action:"replace"})
   }
 
+  check(event){
+
+    const admin = event.target
+    if (admin.checked) {
+      console.log("Marcado")
+      var url = `/devise/registrations/isAdmin?admin=true`;
+    } else {
+      console.log("Desmarcado")
+      var url = `/devise/registrations/isAdmin?admin=false`;
+    }
+
+  }
+
   hide(event) {
 
   }

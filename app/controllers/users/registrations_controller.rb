@@ -29,6 +29,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def destroy
+    resource.soft_delete
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    set_flash_message :notice, :destroyed if is_navigational_format?
+    respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+  end
+
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
@@ -62,6 +69,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def all
     @usuarios = User.all
+  end
+
+  def editProfile
+    @usuarios = User.find(params[:id])
+    if @usuarios.update(params_usuarios)
+      redirect_to @usuarios
+    else
+      render 'editProfile'
+    end
+  end
+
+  def updateProfile
+    @usuarios = User.find(params[:id])
+    if @usuarios.update(params_usuarios)
+      redirect_to @usuarios
+    else
+      render 'editProfile'
+    end
+  end
+
+  private
+  def params_usuarios
+    params.require(:user).permit(:email, :password, :name, :admin, :password_confirmation, :current_password)
   end
 
 end

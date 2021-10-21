@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'players/team', to: 'players#team'
 
   get 'players/teamSelected', :to => "searches#prueba", :as => "team"
+  get 'devise/registrations/isAdmin', :to => "admins#index", :as => "checked"
 
   resources :news
   resources :players
@@ -15,7 +16,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   devise_scope :user do
     get "devise/registrations/all"=> "users/registrations#all", :as => "all"
-    get ':user/registrations/edit-profile' => 'devise/registrations#edit-profile', :as => :edit_user_profile
+    get 'devise/registrations/editProfile/:id' => 'devise/registrations#editProfile', :as => "edit_user_profile"
+    get 'users/registrati'
   end
 
   root to: "news#front"
