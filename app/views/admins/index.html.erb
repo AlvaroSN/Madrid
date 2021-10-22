@@ -1,0 +1,45 @@
+<%= render "partials/header" %>
+
+<div class="container mainContainer">
+  <h1 class="text-4xl text-blue-600 mb-5">Lista de usuarios</h1>
+
+  <table class="table-auto w-full">
+
+    <thread>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Creado</th>
+        <th>Actualizado</th>
+        <th>Admin</th>
+      </tr>
+    </thread>
+
+    <tbody data-controller="hello">
+    <% @usuarios.each do |usuario| %>
+      <tr class="text-center">
+        <td class="border border-blue-600"><%=usuario.name%></td>
+        <td class="border border-blue-600"><%=usuario.email%></td>
+        <td class="border border-blue-600"><%=usuario.created_at%></td>
+        <td class="border border-blue-600"><%=usuario.updated_at%></td>
+        <div >
+          <% if usuario.admin %>
+            <td class=""><input id ="check" name="check" type="checkbox" checked data-action="hello#check" /></td>
+          <% else %>
+            <td class=""><input id ="check" name="check" type="checkbox" data-action="click->hello#check"/></td>
+          <% end %>
+        </div>
+
+
+        <td><%= link_to "Editar usuario", edit_admin_path(usuario.id) , class: "inline-block text-sm px-4 py-2 leading-none border
+            font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+
+
+</div>
+
+<%= render "partials/footer" %>

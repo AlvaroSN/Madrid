@@ -31,7 +31,7 @@
       </div>
 
 
-      <td><%= link_to "Editar usuario", edit_user_profiles_path(usuario.id, :x => usuario.name) , class: "inline-block text-sm px-4 py-2 leading-none border
+      <td><%= link_to "Editar usuario", editable_path(usuario.id, :x => usuario.name) , class: "inline-block text-sm px-4 py-2 leading-none border
             font-semibold rounded border-black hover:border-transparent hover:text-teal-500 hover:text-black hover:bg-white mt-4 ml-3 lg:mt-0" %></td>
     </tr>
   <% end %>

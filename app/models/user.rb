@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :team
+
   def soft_delete
     update_attribute(:deleted_at, Time.current)
   end

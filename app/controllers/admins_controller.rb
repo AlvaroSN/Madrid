@@ -1,7 +1,20 @@
 class AdminsController < ApplicationController
 
   def index
+    @usuarios = User.all
+  end
 
+  def new
+
+  end
+
+  def create
+    @usuarios = User.create(params_usuarios)
+    if @usuarios.save
+      redirect_to admins_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -17,9 +30,13 @@ class AdminsController < ApplicationController
     end
   end
 
+  def check
+
+  end
+
   private
   def params_usuarios
-    params.require(:user).permit(:email, :password, :name, :admin, :password_confirmation, :current_password)
+    params.require(:user).permit(:name, :email, :password, :admin)
   end
 
 end
