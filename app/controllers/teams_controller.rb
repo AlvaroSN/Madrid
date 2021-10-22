@@ -4,17 +4,25 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    @team = current_user.teams.build(team_params)
   end
 
   def create
     @team = current_user.teams.build(team_params)
     if @team.save
-      redirect_to team_pat
+      redirect_to team_path
     else
       render 'new'
     end
   end
 
+  def edit
+    @team
+  end
+
+  def update
+
+  end
 
 
   private

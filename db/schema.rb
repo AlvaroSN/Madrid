@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(version: 2021_10_22_100037) do
 
   create_table "teams", force: :cascade do |t|
     t.integer "user_id"
-    t.string "po"
-    t.string "li"
-    t.string "di"
-    t.string "dd"
-    t.string "ld"
-    t.string "mi"
-    t.string "mc"
-    t.string "md"
-    t.string "ei"
-    t.string "dc"
-    t.string "ed"
+    t.string "PO"
+    t.string "LI"
+    t.string "DCI"
+    t.string "DCD"
+    t.string "LD"
+    t.string "MCI"
+    t.string "MD"
+    t.string "MCD"
+    t.string "EI"
+    t.string "DC"
+    t.string "ED"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_teams_on_user_id"

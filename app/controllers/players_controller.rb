@@ -47,9 +47,29 @@ class PlayersController < ApplicationController
       @delanteros = Player.where({:position => 'Delantero'})
     end
 
+    def updateTeam
+      puts(current_user.id)
+      puts(team)
+      if !Team.exists? user_id: current_user.id
+        puts ("Aún no existe el equipo")
+        @team = Team.new(team_params)
+        @team.user_id = current_user.id
+        @team.save!
+      else
+        puts ("Ya existe el equipo")
+        @team = current_user["team"]
+        @team.update(team_params)
+      end
+      #@user = User.includes("team").find(current_user.id)
+    end
+
     private
     def params_jugador
       params.require(:player).permit(:name,:number,:position,:photo)
+    end
+
+    def team_params
+      params.require(:team).permit(:PO, :LI, :DCI, :DCD, :LD, :MCI, :MD, :MCD, :EI, :DC, :ED)
     end
 
 end

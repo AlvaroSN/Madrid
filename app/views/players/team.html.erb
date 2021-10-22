@@ -8,11 +8,13 @@
       <div class="bg-field my-10 flex flex-row mx-auto py-5">
 
         <!-- Portero -->
-        <div class="flex flex-col ml-10 w-1/4 justify-around">
-          <div  class="ml-10" data-pos="po">
+        <div class="flex flex-col ml-16 w-1/4 justify-around">
+          <div  data-pos="po">
             <%= form.collection_select :PO, @porteros, :name, :name, {:prompt => 'Portero'},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "po", target: "_top" %>
+            <%= turbo_frame_tag "po", target: "_top" do %>
+              <%= render partial: "jugador", locals:{x:@jugador} %>
+            <% end %>
           </div>
         </div>
 
