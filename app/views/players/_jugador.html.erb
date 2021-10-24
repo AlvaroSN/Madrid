@@ -1,5 +1,6 @@
 <% if x == nil %>
   <p class="text-white">No existe el jugador</p>
 <% else %>
+  <p> <%= x.name %> </p>
   <img src="<%=x.photo%>" alt="<%=x.name%>" class="w-2/6">
 <% end %>

@@ -48,7 +48,6 @@ class PlayersController < ApplicationController
     end
 
     def updateTeam
-      puts(current_user.id)
       puts(team)
       if !Team.exists? user_id: current_user.id
         puts ("Aún no existe el equipo")
@@ -57,7 +56,7 @@ class PlayersController < ApplicationController
         @team.save!
       else
         puts ("Ya existe el equipo")
-        @team = current_user["team"]
+        @team = current_user.team
         @team.update(team_params)
       end
       #@user = User.includes("team").find(current_user.id)
@@ -69,7 +68,7 @@ class PlayersController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:PO, :LI, :DCI, :DCD, :LD, :MCI, :MD, :MCD, :EI, :DC, :ED)
+      params.permit(:PO, :LI, :DCI, :DCD, :LD, :MCI, :MD, :MCD, :EI, :DC, :ED)
     end
 
 end

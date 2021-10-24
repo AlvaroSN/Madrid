@@ -13,7 +13,8 @@
             <%= form.collection_select :PO, @porteros, :name, :name, {:prompt => 'Portero'},
                                        {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "po", target: "_top" do %>
-              <%= render partial: "jugador", locals:{x:@jugador} %>
+              <% jugador = Player.where("name LIKE :aux", aux: current_user.team.PO)%>
+              <%= render partial: "jugador", locals:{x:jugador} %>
             <% end %>
           </div>
         </div>
@@ -23,7 +24,10 @@
           <div data-pos="li">
             <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral'},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "li", target: "_top" %>
+            <%= turbo_frame_tag "li", target: "_top" do %>
+              <% jugador = Player.where("name LIKE :aux", aux: current_user.team.LI)%>
+              <%= render partial: "jugador", locals:{x:jugador} %>
+            <% end %>
           </div>
           <div data-pos="di">
             <%= form.collection_select :DCI, @defensas, :name, :name, {:prompt => 'Central'},
