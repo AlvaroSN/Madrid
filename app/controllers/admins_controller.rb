@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   end
 
   def new
-
+    @usuarios = User.new
   end
 
   def create
@@ -25,7 +25,7 @@ class AdminsController < ApplicationController
     puts 'dsjthdklxfjdklxfjgnylñdjyñdlxkjylxñhjyjmuy'
     @usuarios = User.find(params[:id])
     if @usuarios.update(params_usuarios)
-      redirect_to '/admins'
+      redirect_to @usuarios
       puts 'hola'
     else
       puts 'adios'

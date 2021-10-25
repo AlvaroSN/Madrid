@@ -3,5 +3,8 @@
 <% elsif n == nil%>
   <img src="<%= x.photo %>" class="w-2/6">
 <% else %>
-  <img src="<%= x.find_by(name: n).photo %>" class="w-2/6">
+  <% player = x.find_by(name: n) %>
+  <% if player != nil%>
+    <img src="<%= player.photo %>" class="w-2/6">
+  <% end %>
 <% end %>

@@ -10,11 +10,16 @@
         <!-- Portero -->
         <div class="flex flex-col ml-16 w-1/4 justify-around">
           <div  data-pos="po">
-            <%= form.collection_select :PO, @porteros, :name, :name, {:prompt => 'Portero'},
+            <% name = current_user.team.PO %>
+            <% jugador = Player.where("name LIKE :aux", aux: name)%>
+            <% if name != "" %>
+              <% selected = name %>
+            <% else %>
+              <% selected = "Portero" %>
+            <% end %>
+            <%= form.collection_select :PO, @porteros, :name, :name,
                                        {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "po", target: "_top" do %>
-              <% name = current_user.team.PO %>
-              <% jugador = Player.where("name LIKE :aux", aux: name)%>
               <%= render partial: "jugador", locals:{x:jugador, :n => name} %>
             <% end %>
           </div>
