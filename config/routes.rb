@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'players/index', to: "players#index"
   get "players/pruebas"
 
-  get 'players/team', to: 'players#team'
-  post "/players/team", to: 'players#updateTeam'
+  get 'players/team', to: 'players#team', :as => "teamPage"
+  post 'players/team', to: 'players#updateTeam'
+  post 'players/teamSeleceted', to: 'players#updateTeam'
 
   #Ruta para stimulus del formulario del equipo
   get 'players/teamSelected', :to => "searches#prueba", :as => "team"

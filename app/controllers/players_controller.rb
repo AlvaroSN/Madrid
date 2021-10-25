@@ -1,5 +1,7 @@
 class PlayersController < ApplicationController
 
+  before_action :require_login, only: [:updateTeam]
+
     def index
       @jugador = Player.all
     end
@@ -41,26 +43,29 @@ class PlayersController < ApplicationController
     end
 
     def team
+
       @porteros = Player.where({:position => 'Portero'})
       @defensas = Player.where({:position => 'Defensa'})
       @mediocentros = Player.where({:position => 'Centrocampista'})
       @delanteros = Player.where({:position => 'Delantero'})
-    end
 
-    def updateTeam
-      puts(team)
-      if !Team.exists? user_id: current_user.id
-        puts ("Aún no existe el equipo")
-        @team = Team.new(team_params)
+      unless Team.exists? user_id: current_user.id
+        puts("------------------Plantilla nueva creada para el usuario---------------------")
+        @team = Team.new()
         @team.user_id = current_user.id
         @team.save!
       else
-        puts ("Ya existe el equipo")
-        @team = current_user.team
-        @team.update(team_params)
+        puts("-----------------El usuario ya tiene una plantilla creada---------------------")
+        @team = Team.find_by user_id: current_user.id
       end
-      #@user = User.includes("team").find(current_user.id)
     end
+
+  def updateTeam
+    @team = Team.find_by user_id: current_user.id
+    @result = []
+    @result.push()
+    @team.update(team_params)
+  end
 
     private
     def params_jugador
@@ -69,6 +74,12 @@ class PlayersController < ApplicationController
 
     def team_params
       params.permit(:PO, :LI, :DCI, :DCD, :LD, :MCI, :MD, :MCD, :EI, :DC, :ED)
+    end
+
+    def require_login
+      unless signed_in?
+        redirect_to new_user_session_url, alert: "Debes iniciar sesión para poder acceder"
+      end
     end
 
 end
