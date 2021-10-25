@@ -1,7 +1,7 @@
 <div class="deviseContainer mt-16">
   <!-- Edit  resource_name.to_s.humanize %> -->
   <h2 class="text-center text-blue-600 text-2xl mb-5">Editar usuario: <%=(params[:x])%></h2>
-  <%= form_with(model: @usuarios, url: all_path, class: 'w-full') do |f| %>
+  <%= form_with(model: @usuarios, url: admins_path, class: 'w-full') do |f| %>
 
     <div class="field">
       <%= f.label :name, "Nombre:", class: "block text-gray-700 text-sm font-bold mb-2"%>

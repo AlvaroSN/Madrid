@@ -22,10 +22,13 @@ class AdminsController < ApplicationController
   end
 
   def update
+    puts 'dsjthdklxfjdklxfjgnylñdjyñdlxkjylxñhjyjmuy'
     @usuarios = User.find(params[:id])
     if @usuarios.update(params_usuarios)
-      redirect_to @usuarios
+      redirect_to '/admins'
+      puts 'hola'
     else
+      puts 'adios'
       render 'edit'
     end
   end
