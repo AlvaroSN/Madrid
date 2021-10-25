@@ -1,5 +1,7 @@
-<% if x.name == "Player" || x == nil %>
+<% if x == nil  %>
   <p class="text-white">No existe el jugador</p>
-<% else %>
+<% elsif n == nil%>
   <img src="<%= x.photo %>" class="w-2/6">
+<% else %>
+  <img src="<%= x.find_by(name: n).photo %>" class="w-2/6">
 <% end %>
