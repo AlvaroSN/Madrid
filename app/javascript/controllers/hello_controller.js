@@ -28,16 +28,7 @@ export default class extends Controller {
       var url = `/devise/registrations/isAdmin?user=${id}&admin=false`;
       console.log(url)
     }
-
-    fetch(url)
-        .then(response => response.json())
-        .then((data) => {
-          if (data.admin)
-            event.target = true
-          else
-            event.target = false
-        });
-
+    fetch(url);
   }
 
 }
