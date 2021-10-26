@@ -18,18 +18,20 @@ class AdminsController < ApplicationController
   end
 
   def edit
+    puts('----------------Función edit------------------')
     @usuarios = User.find(params[:id])
+
   end
 
   def update
-    puts 'dsjthdklxfjdklxfjgnylñdjyñdlxkjylxñhjyjmuy'
+    puts('----------------Función update-----------------')
     @usuarios = User.find(params[:id])
+    puts(params_usuarios)
     if @usuarios.update(params_usuarios)
       redirect_to @usuarios
-      puts 'hola'
     else
       puts 'adios'
-      render 'edit'
+      redirect_to('/admins')
     end
   end
 
@@ -39,7 +41,7 @@ class AdminsController < ApplicationController
 
   private
   def params_usuarios
-    params.require(:user).permit(:name, :email, :password, :admin)
+    params.require(:user).permit(:name, :email, :admin)
   end
 
 end

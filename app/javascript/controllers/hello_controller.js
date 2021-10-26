@@ -5,7 +5,7 @@ import * as url from "url";
 export default class extends Controller {
 
   connect() {
-    console.log("Conectado");
+
   }
 
   prueba(event) {
@@ -18,14 +18,15 @@ export default class extends Controller {
   }
 
   check(event){
-
     const admin = event.target
+    let id = event.target.dataset.id
+    console.log(id)
     if (admin.checked) {
-      console.log("Marcado")
-      var url = `/devise/registrations/isAdmin?admin=true`;
+      var url = `/devise/registrations/isAdmin?user=${id}&admin=true`;
+      console.log(url)
     } else {
-      console.log("Desmarcado")
-      var url = `/devise/registrations/isAdmin?admin=false`;
+      var url = `/devise/registrations/isAdmin?user=${id}&admin=false`;
+      console.log(url)
     }
 
   }

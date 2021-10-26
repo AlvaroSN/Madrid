@@ -1,0 +1,25 @@
+
+  <%= form_with(model: @usuarios, url: '/admins/' + params[:id] + '/edit', class: 'w-full', html: {method: :post}) do |f| %>
+<%= admins_path %>
+    <div class="field">
+      <%= f.label :name, "Nombre:", class: "block text-gray-700 text-sm font-bold mb-2"%>
+      <%= f.text_field :name, autofocus: true, class: "shadow appearance-none border rounded w-full
+        py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, "Correo:", class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow appearance-none border rounded w-full
+        py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :admin, "¿Administrador?", class: "text-gray-700 text-sm font-bold mr-5"%>
+      <%= f.check_box :admin %>
+    </div>
+
+    <div class="field text-center">
+      <%= f.submit "Actualizar", class: "bg-gray-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none
+        focus:shadow-outline mx-auto" %>
+    </div>
+  <% end %>
