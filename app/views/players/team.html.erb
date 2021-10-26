@@ -11,16 +11,10 @@
         <div class="flex flex-col ml-16 w-1/4 justify-around">
           <div  data-pos="po">
             <% name = current_user.team.PO %>
-            <% jugador = Player.where("name LIKE :aux", aux: name)%>
-            <% if name != "" %>
-              <% selected = name %>
-            <% else %>
-              <% selected = "Portero" %>
-            <% end %>
-            <%= form.collection_select :PO, @porteros, :name, :name,
+            <%= form.collection_select :PO, @porteros, :name, :name, {:prompt => 'Portero', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "po", target: "_top" do %>
-              <%= render partial: "jugador", locals:{x:jugador, :n => name} %>
+              <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
         </div>
@@ -28,66 +22,92 @@
         <!-- Defensas -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div data-pos="li">
-            <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral'},
+            <% name = current_user.team.LI %>
+            <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
             <%= turbo_frame_tag "li", target: "_top" do %>
-              <% name = current_user.team.LI %>
-              <% jugador = Player.where("name LIKE :aux", aux: name)%>
-              <%= render partial: "jugador", locals:{x:jugador, :n => name} %>
+              <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
           <div data-pos="di">
-            <%= form.collection_select :DCI, @defensas, :name, :name, {:prompt => 'Central'},
+            <% name = current_user.team.DCI %>
+            <%= form.collection_select :DCI, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "di", target: "_top" %>
+            <%= turbo_frame_tag "di", target: "_top" do %>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div data-pos="dd">
-            <%= form.collection_select :DCD, @defensas, :name, :name, {:prompt => 'Central'},
+            <% name = current_user.team.DCD %>
+            <%= form.collection_select :DCD, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "dd", target: "_top" %>
+            <%= turbo_frame_tag "dd", target: "_top" do %>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div data-pos="ld">
-            <%= form.collection_select :LD, @defensas, :name, :name, {:prompt => 'Lateral'},
+            <% name = current_user.team.LD %>
+            <%= form.collection_select :LD, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "ld", target: "_top" %>
+            <%= turbo_frame_tag "ld", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
         </div>
 
         <!-- Mediocentros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div class="" data-pos="mi">
-            <%= form.collection_select :MCI, @mediocentros, :name, :name, {:prompt => 'Interior'},
+            <% name = current_user.team.MCI %>
+            <%= form.collection_select :MCI, @mediocentros, :name, :name, {:prompt => 'Interior', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "mi", target: "_top" %>
+            <%= turbo_frame_tag "mi", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div class="" data-pos="mc">
-            <%= form.collection_select :MD, @mediocentros, :name, :name, {:prompt => 'Pivote'},
+            <% name = current_user.team.MD %>
+            <%= form.collection_select :MD, @mediocentros, :name, :name, {:prompt => 'Pivote', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "mc", target: "_top" %>
+            <%= turbo_frame_tag "mc", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div class="" data-pos="md">
-            <%= form.collection_select :MCD, @mediocentros, :name, :name, {:prompt => 'Interior'},
+            <% name = current_user.team.MCD %>
+            <%= form.collection_select :MCD, @mediocentros, :name, :name, {:prompt => 'Interior', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "md", target: "_top" %>
+            <%= turbo_frame_tag "md", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
         </div>
 
         <!-- Delanteros -->
         <div class="flex flex-col -ml-10 w-1/4 justify-around">
           <div data-pos="ei">
-            <%= form.collection_select :EI, @delanteros, :name, :name, {:prompt => 'Extremo'},
+            <% name = current_user.team.EI %>
+            <%= form.collection_select :EI, @delanteros, :name, :name, {:prompt => 'Extremo', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "ei", target: "_top" %>
+            <%= turbo_frame_tag "ei", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div data-pos="dc">
-            <%= form.collection_select :DC, @delanteros, :name, :name, {:prompt => 'Delantero'},
+            <% name = current_user.team.DC %>
+            <%= form.collection_select :DC, @delanteros, :name, :name, {:prompt => 'Delantero', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "dc", target: "_top" %>
+            <%= turbo_frame_tag "dc", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
           <div data-pos="ed">
-            <%= form.collection_select :ED, @delanteros, :name, :name, {:prompt => 'Extremo'},
+            <% name = current_user.team.ED %>
+            <%= form.collection_select :ED, @delanteros, :name, :name, {:prompt => 'Extremo', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
-            <%= turbo_frame_tag "ed", target: "_top" %>
+            <%= turbo_frame_tag "ed", target: "_top" do%>
+              <%= render partial: "jugador", locals:{:n => name} %>
+            <% end %>
           </div>
         </div>
 

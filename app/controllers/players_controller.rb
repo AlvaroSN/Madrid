@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 
-  before_action :require_login, only: [:updateTeam]
+  before_action :require_login, only: [:updateTeam, :team]
 
     def index
       @jugador = Player.all
@@ -43,28 +43,23 @@ class PlayersController < ApplicationController
     end
 
     def team
-
       @porteros = Player.where({:position => 'Portero'})
       @defensas = Player.where({:position => 'Defensa'})
       @mediocentros = Player.where({:position => 'Centrocampista'})
       @delanteros = Player.where({:position => 'Delantero'})
-
       unless Team.exists? user_id: current_user.id
         puts("------------------Plantilla nueva creada para el usuario---------------------")
         @team = Team.new()
         @team.user_id = current_user.id
         @team.save!
-      else
-        puts("-----------------El usuario ya tiene una plantilla creada---------------------")
-        @team = Team.find_by user_id: current_user.id
       end
     end
 
   def updateTeam
+    puts("-----------------El usuario ya tiene una plantilla creada---------------------")
     @team = Team.find_by user_id: current_user.id
-    @result = []
-    @result.push()
     @team.update(team_params)
+    redirect_to players_team_url, notice: "Plantilla actualizada correctamente"
   end
 
     private

@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
     jugadores = Player.where(name: params[:player])
     pos = params[:pos]
     @jugador = jugadores.first
-    render turbo_stream: turbo_stream.update(pos, partial: "players/jugador", locals:{x:@jugador, :n => nil})
+    render turbo_stream: turbo_stream.update(pos, partial: "players/jugador", locals:{n:@jugador.name})
   end
 
 end
