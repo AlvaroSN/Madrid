@@ -67,26 +67,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def all
-    @usuarios = User.all
-  end
-
-  def editProfile
-    @usuarios = User.find(params[:id])
-  end
-
-  def updateProfile
-    @usuarios = User.find(params[:id])
-    if @usuarios.update(params_usuarios)
-      redirect_to @usuarios
-    else
-      render 'editProfile'
-    end
-  end
-
-  private
-  def params_usuarios
-    params.require(:user).permit(:email, :password, :name, :admin, :password_confirmation, :current_password)
-  end
-
 end

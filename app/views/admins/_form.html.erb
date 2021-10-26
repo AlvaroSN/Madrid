@@ -1,6 +1,5 @@
 
   <%= form_with(model: @usuarios, url: '/admins/' + params[:id] + '/edit', class: 'w-full', html: {method: :post}) do |f| %>
-<%= admins_path %>
     <div class="field">
       <%= f.label :name, "Nombre:", class: "block text-gray-700 text-sm font-bold mb-2"%>
       <%= f.text_field :name, autofocus: true, class: "shadow appearance-none border rounded w-full

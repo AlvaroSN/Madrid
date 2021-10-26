@@ -36,7 +36,9 @@ class AdminsController < ApplicationController
   end
 
   def check
-
+    @usuario = User.find(params[:user])
+    @usuario.admin = params[:admin]
+    @usuario.save!
   end
 
   private

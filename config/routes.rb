@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   post 'players/team', to: 'players#updateTeam'
   post 'players/teamSeleceted', to: 'players#updateTeam'
 
-  #Ruta para stimulus del formulario del equipo
-  get 'players/teamSelected', :to => "searches#prueba", :as => "team"
-
   get 'admins/edit'=> 'admins#edit'
   post 'admins/:id/edit', :to => 'admins#update'
   #patch '/admins/:id', :to => 'admins#edit', :as => "edit_user_profiles"
 
+  #Rutas para Stimulus
+  get 'players/teamSelected', :to => "searches#prueba", :as => "team"
   get 'devise/registrations/isAdmin', :to => "admins#check", :as => "checked"
 
   resources :admins
@@ -22,9 +21,6 @@ Rails.application.routes.draw do
   resources :players
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
-  devise_scope :user do
-
-  end
 
   root to: "news#front"
 
