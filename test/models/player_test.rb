@@ -19,7 +19,7 @@ class PlayerTest < ActiveSupport::TestCase
   end
 
   test "jugadores con disintos id" do
-    assert_nil (Player.new(name: 'Nombre1', photo: 'a', number: 1, position: 'Defensa').id)
+    assert_not(Player.new(name: 'Nombre1', photo: 'a', number: 1, position: 'Defensa').save)
   end
 
 end
