@@ -1,15 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  nickname: MyString
+uno:
+  name: Nombre1
   position: MyString
   number: 1
   photo: MyString
 
-two:
-  name: MyString
-  nickname: MyString
+dos:
+  name: Nombre2
   position: MyString
-  number: 1
+  number: 2
   photo: MyString
+
