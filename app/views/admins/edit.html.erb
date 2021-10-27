@@ -1,15 +1,17 @@
-<div class="deviseContainer mt-16">
-  <!-- Edit  resource_name.to_s.humanize %> -->
-  <h2 class="text-center text-blue-600 text-2xl mb-5">Editar usuario (ID: <%=(params[:id])%>)</h2>
 
-  <%= turbo_frame_tag "post" do %>
-    <%= render partial: 'form' %>
-  <% end %>
+  <div class="deviseContainer mt-16">
+    <!-- Edit  resource_name.to_s.humanize %> -->
+    <h2 class="text-center text-blue-600 text-2xl mb-5">Editar usuario (ID: <%=(params[:id])%>)</h2>
 
-  <div class="flex flex-wrap mt-5">
-    <%= link_to "Borrar la cuenta", registration_path(@usuarios), data: { confirm: "¿Estás seguro?" }, method: :delete,
-                class: "link w-full" %>
-    <%= link_to "Volver", admins_path, class: "link w-full" %>
+    <%= turbo_frame_tag "post" do %>
+      <%= render partial: 'form' %>
+    <% end %>
+
+
+    <div class="flex flex-wrap mt-5">
+      <%= link_to "Borrar la cuenta", registration_path(@usuarios), data: { confirm: "¿Estás seguro?" }, method: :delete,
+                  class: "link w-full" %>
+      <%= link_to "Volver", admins_path, class: "link w-full" %>
+    </div>
+
   </div>
-
-</div>

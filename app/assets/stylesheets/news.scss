@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+$greyColor: rgb(156, 163, 175);
+
 .mainImage {
   width: 100%;
   height: auto;
@@ -25,6 +27,17 @@
   background-repeat: no-repeat;
   background-size: contain;
   resize: both;
+}
+
+.bgImg{
+  background-color: $greyColor; /* For browsers that do not support gradients */
+  background-image: radial-gradient(circle, $greyColor 10%, white 90%);
+}
+
+.noticeImg {
+  width: 75%;
+  height: auto;
+  margin: auto;
 }
 
 //Style carousel
@@ -63,4 +76,5 @@
   background-size: cover;
   resize: both;
 }
+
 

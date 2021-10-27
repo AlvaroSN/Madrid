@@ -26,13 +26,8 @@ class AdminsController < ApplicationController
   def update
     puts('----------------Función update-----------------')
     @usuarios = User.find(params[:id])
-    puts(params_usuarios)
-    if @usuarios.update(params_usuarios)
-      redirect_to @usuarios
-    else
-      puts 'adios'
-      redirect_to('/admins')
-    end
+    @usuarios.update(params_usuarios)
+    redirect_to admins_path
   end
 
   def check

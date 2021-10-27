@@ -1,16 +1,29 @@
 <%= render "partials/header" %>
 <div class="container mainContainer">
-  <h1 class="text-blue-600 text-4xl mb-4">Noticias</h1>
+  <h1 class="text-blue-600 text-4xl mb-4">Última hora</h1>
 
-  <div class="flex flex-row flex-wrap">
+  <div class="grid grid-cols-2 gap-5">
+    <% n=1 %>
     <% @noticia.each do |noticia| %>
-      <div class="w-1/2 mb-3 p-5">
-        <h2 class="text-2xl font-semibold"> <%= noticia.title %></h2>
-        <p> <%= noticia.subtitle %> </p>
-        <%= link_to oneNew_path(noticia.id) do %>
-          <img src="<%=noticia.photo%>" alt="<%=noticia.title%>" class="image" >
-        <% end %>
-      </div>
+      <% if n==1 %>
+        <div class="col-span-2 text-center rounded shadow-xl mb-8 p-5 bgImg">
+          <h2 class="text-2xl font-semibold"> <%= noticia.title %></h2>
+          <p> <%= noticia.subtitle %> </p>
+          <%= link_to oneNew_path(noticia.id) do %>
+            <img src="<%=noticia.photo%>" alt="<%=noticia.title%>" class="noticeImg border-8 border-blue-600 my-4" >
+          <% end %>
+        </div>
+        <h2 class="col-span-2 text-center text-4xl text-blue-600 mb-5">Noticias</h2>
+      <% else %>
+        <div class="xl:col-span-1 lg:col-span-2 md:col-span-2 sm:col-span-2 border-t-2 border-blue-600 hover:border-transparent">
+          <h2 class="text-2xl font-semibold"> <%= noticia.title %></h2>
+          <p> <%= noticia.subtitle %> </p>
+          <%= link_to oneNew_path(noticia.id) do %>
+            <img src="<%=noticia.photo%>" alt="<%=noticia.title%>" class="noticeImg" >
+          <% end %>
+        </div>
+      <% end %>
+      <% n = n+1 %>
     <% end %>
   </div>
 

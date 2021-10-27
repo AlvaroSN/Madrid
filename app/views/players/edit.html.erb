@@ -1,7 +1,7 @@
 <%= render "partials/header" %>
 <div class="container mainContainer w-2/3 py-4">
   <h1 class="text-blue-600 text-2xl text-center mb-5">Editar jugador</h1>
-  <%= form_with(model: @jugador, url: players_path, class: 'w-full') do |form|  %>
+  <%= form_with(model: @jugador, class: 'w-full') do |form|  %>
 
     <div class="flex flex-row flex-wrap md:items-center mb-6">
       <%= form.label :name, "Nombre del jugador", class:"text-blue-600 font-bold md:text-right
