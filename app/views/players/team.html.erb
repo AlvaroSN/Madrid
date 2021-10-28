@@ -13,7 +13,7 @@
           <div data-pos="po">
             <% name = current_user.team.PO %>
             <%= form.collection_select :PO, @porteros, :name, :name, {:prompt => 'Portero', selected: name},
-                                       {data: {action: "change->hello#prueba"}}%>
+                                       {data: {action: "change->hello#prueba", player: name} }%>
             <%= turbo_frame_tag "po", target: "_top" do %>
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
@@ -22,7 +22,7 @@
 
         <!-- Defensas -->
         <div class="flex flex-col w-1/4 justify-around">
-          <div data-pos="li">
+          <div data-pos="li" class="defense">
             <% name = current_user.team.LI %>
             <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -30,7 +30,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="di">
+          <div data-pos="di" class="defense">
             <% name = current_user.team.DCI %>
             <%= form.collection_select :DCI, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -38,7 +38,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="dd">
+          <div data-pos="dd" class="defense">
             <% name = current_user.team.DCD %>
             <%= form.collection_select :DCD, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -46,7 +46,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="ld">
+          <div data-pos="ld" class="defense">
             <% name = current_user.team.LD %>
             <%= form.collection_select :LD, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>

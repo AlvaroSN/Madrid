@@ -12,6 +12,11 @@ export default class extends Controller {
     let pos = event.target.parentElement.dataset.pos
     console.log(pos)
     let jugador = event.target.selectedOptions[0].value
+    let previos = document.getElementsByClassName("defense")
+    console.log(previos)
+    for (let i=0; i<previos.length; i++){
+      console.log(previos[i].children[0]);
+    }
     let dir = `/players/teamSelected?player=${jugador}&pos=${pos}`
     console.log(dir)
     Turbo.visit(dir, {action:"replace"})
