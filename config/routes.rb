@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get 'players/team', to: 'players#team', :as => "teamPage"
   post 'players/team', to: 'players#updateTeam'
   post 'players/teamSeleceted', to: 'players#updateTeam'
+  get 'players/userTeam/:id', to: 'players#userTeam', as: 'userTeam'
 
   get 'admins/edit'=> 'admins#edit'
   post 'admins/:id/edit', :to => 'admins#update'
-  #patch '/admins/:id', :to => 'admins#edit', :as => "edit_user_profiles"
 
   #Rutas para Stimulus
   get 'players/teamSelected', :to => "searches#prueba", :as => "team"

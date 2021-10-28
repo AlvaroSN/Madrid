@@ -2,22 +2,21 @@ require "test_helper"
 
 class PlayersControllerTest < ActionDispatch::IntegrationTest
 
-  test "can see the index page" do
-    get "/"
-    assert_not_nil "h2", "player#index"
-  end
-
-  test "should get index" do
+  test "obtener índice" do
     get "/players/index"
     assert_response :success
   end
 
-  test "should create player" do
-    assert_difference('Player.count') do
-      post :create, player: {name: 'Nombre'}
-    end
-    assert_redirected_to player_path(assigns(:player))
+  test "comprobar elementos índice" do
+    get "/"
+    assert_not_nil "h2", "player#index"
   end
 
+  test "creación artículo" do
+    assert_difference("Player.count") do
+      post players_url, params: { player: { name: 'Alvaro', position: 'Defensa', number: 1, photo: 'foto'  } }
+    end
+    assert_redirected_to players_index_path
+  end
 
 end

@@ -62,6 +62,11 @@ class PlayersController < ApplicationController
     redirect_to players_team_url, notice: "Plantilla actualizada correctamente"
   end
 
+  def userTeam
+    @user = User.find(params[:id])
+    @team = Team.find_by user_id: params[:id]
+  end
+
     private
     def params_jugador
       params.require(:player).permit(:name,:number,:position,:photo)

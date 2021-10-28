@@ -1,0 +1,78 @@
+<%= render 'partials/header' %>
+
+<div class="container mainContainer">
+  <h1 class="text-blue-600 text-center text-4xl text-center"> Plantilla de <%= @user.name %> </h1>
+  <div class="bg-field my-10 flex flex-row mx-auto py-5">
+    <div class="flex flex-col ml-16 w-1/4 justify-around">
+
+      <div>
+      <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.PO%> </p>
+      <%= render partial: "jugador", locals:{:n => @team.PO} %>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col w-1/4 justify-around">
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.LI%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.LI} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.DCI%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.DCI} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.DCD%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.DCD} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.LD%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.LD} %>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col w-1/4 justify-around">
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.MCI%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.MCI} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.MD%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.MD} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.MCD%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.MCD} %>
+      </div>
+    </div>
+
+    <div class="flex flex-col w-1/4 justify-around">
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.EI%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.EI} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.DC%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.DC} %>
+      </div>
+
+      <div>
+        <p class="text-center text-xs text-blue-600 fuente bg-white w-5/12"> <%=@team.ED%> </p>
+        <%= render partial: "jugador", locals:{:n => @team.ED} %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<%= render 'partials/footer' %>
