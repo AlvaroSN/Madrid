@@ -67,6 +67,19 @@ class PlayersController < ApplicationController
     @team = Team.find_by user_id: params[:id]
   end
 
+  def searches
+    puts "--------------ENTRO EN EL CONTROLADOR----------------"
+    #@jugador = Player.where("name LIKE :pos", pos: "#{params[:player]}")
+    jugadores = Player.where(name: params[:player])
+    pos = params[:pos]
+    @jugador = jugadores.first
+    if @jugador != nil
+      render turbo_stream: turbo_stream.update(pos, partial: "players/jugador", locals:{n:@jugador.name})
+    else
+      render turbo_stream: turbo_stream.update(pos, partial: "players/jugador", locals:{n:nil})
+    end
+  end
+
     private
     def params_jugador
       params.require(:player).permit(:name,:number,:position,:photo)

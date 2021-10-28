@@ -12,6 +12,7 @@
       <th>Creado</th>
       <th>Actualizado</th>
       <th>Admin</th>
+      <td>Eliminado</td>
     </tr>
   </thread>
 
@@ -22,11 +23,18 @@
       <td class="border border-blue-600"><%=usuario.email%></td>
       <td class="border border-blue-600"><%=usuario.created_at%></td>
       <td class="border border-blue-600"><%=usuario.updated_at%></td>
-      <div >
+      <div>
         <% if usuario.admin %>
           <td class=""><input id ="check" name="check" type="checkbox" checked data-action="hello#check" /></td>
         <% else %>
           <td class=""><input id ="check" name="check" type="checkbox" data-action="click->hello#check"/></td>
+        <% end %>
+      </div>
+      <div>
+        <% if usuario.deleted_at == nil %>
+          <td class=""><input id ="check" name="check" type="checkbox" checked /></td>
+        <% else %>
+          <td class=""><input id ="check" name="check" type="checkbox"/></td>
         <% end %>
       </div>
 

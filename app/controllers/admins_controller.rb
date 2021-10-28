@@ -36,6 +36,16 @@ class AdminsController < ApplicationController
     @usuario.save!
   end
 
+  def check2
+    @usuario = User.find(params[:user])
+    if params[:del] == "true"
+      @usuario.deleted_at = Time.current
+    elsif params[:del] == "false"
+      @usuario.deleted_at = nil
+    end
+    @usuario.save!
+  end
+
   private
   def params_usuarios
     params.require(:user).permit(:name, :email, :admin)

@@ -1,5 +1,5 @@
 <% player = Player.find_by(name: n) %>
-<% if player == nil  %>
+<% if player == nil %>
   <p class="text-white">Elige jugador</p>
 <% else %>
   <img src="<%= player.photo %>" class="w-5/12">

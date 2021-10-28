@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   post 'admins/:id/edit', :to => 'admins#update'
 
   #Rutas para Stimulus
-  get 'players/teamSelected', :to => "searches#prueba", :as => "team"
+  get 'players/teamSelected', :to => "players#searches", :as => "team"
   get 'devise/registrations/isAdmin', :to => "admins#check", :as => "checked"
+  get 'devise/registrations/isDel', :to => "admins#check2", :as => "del"
 
   resources :admins
   resources :news
