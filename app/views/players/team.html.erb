@@ -22,7 +22,7 @@
 
         <!-- Defensas -->
         <div class="flex flex-col w-1/4 justify-around">
-          <div data-pos="li" class="defense">
+          <div data-pos="li" data-name="<%=current_user.team.LI%>" class="defense">
             <% name = current_user.team.LI %>
             <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
