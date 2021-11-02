@@ -12,41 +12,39 @@ export default class extends Controller {
     let pos = evento.parentElement.dataset.pos
     let jugador = evento.selectedOptions[0].value
     let dir = `/players/teamSelected?player=${jugador}&pos=${pos}`
-    console.log(dir)
-    Turbo.visit(dir, {action:"replace"})
-    document.addEventListener("turbo:frame-render", function(){secondRender()})
+    console.log("Ruta cambio: " + dir)
 
     let x = document.getElementsByClassName("defense")
-    console.log(x)
     let selec = ""
-    let posSelec = ""
     let urlRepetida = ""
     let previos = []
+
     for (let i=0; i<x.length; i++) {
       selec = x[i].children[0].value
       //if (x[i].children[0] !== event.target)
       if (previos.includes(selec)) {
-        posSelec = x[i].dataset.pos
-        console.log(posSelec)
-        urlRepetida = `/players/teamSelected?player=${event.target.parentElement.dataset.name}&pos=${posSelec}`
+        let posSelec = x[i].dataset.pos
+        let cambio = event.target.parentElement.dataset.name
+        urlRepetida = `/players/teamSelected?player=${cambio}&pos=${posSelec}`
+        console.log("Ruta sustitución:" + urlRepetida)
+        let secondVisit = function () {
+          document.removeEventListener("turbo:visit", secondVisit)
+          console.log('Entró al Listener')
+          Turbo.visit(urlRepetida, {action:"replace"})
+        };
+        document.addEventListener("turbo:visit", secondVisit)
 
         //Actualización variables
         evento.parentElement.dataset.name = jugador
         //Cambiar select y nombre del jugador cambiado
 
-        function secondRender (){
-          console.log('Entró al Listener')
-          Turbo.visit(urlRepetida, {action:"replace"})
-        }
-
       } else {
         previos.push(selec)
       }
     }
-    console.log(previos)
-
-    console.log(event.target.parentElement.dataset.name)
+    Turbo.visit(dir, {action:"replace"})
   }
+
 
   check(event){
     const admin = event.target
