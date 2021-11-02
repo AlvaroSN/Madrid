@@ -14,9 +14,9 @@ export default class extends Controller {
     let dir = `/players/teamSelected?player=${jugador}&pos=${pos}`
     console.log("Ruta cambio: " + dir)
 
-    let x = document.getElementsByClassName("defense")
+    let x = document.getElementsByClassName(evento.parentElement.dataset.class)
+    console.log(x)
     let selec = ""
-    let urlRepetida = ""
     let previos = []
 
     for (let i=0; i<x.length; i++) {
@@ -25,7 +25,7 @@ export default class extends Controller {
       if (previos.includes(selec)) {
         let posSelec = x[i].dataset.pos
         let cambio = event.target.parentElement.dataset.name
-        urlRepetida = `/players/teamSelected?player=${cambio}&pos=${posSelec}`
+        let urlRepetida = `/players/teamSelected?player=${cambio}&pos=${posSelec}`
         console.log("Ruta sustitución:" + urlRepetida)
         console.log(" ")
         let secondVisit = function () {
