@@ -27,16 +27,17 @@ export default class extends Controller {
         let cambio = event.target.parentElement.dataset.name
         urlRepetida = `/players/teamSelected?player=${cambio}&pos=${posSelec}`
         console.log("Ruta sustitución:" + urlRepetida)
+        console.log(" ")
         let secondVisit = function () {
           document.removeEventListener("turbo:visit", secondVisit)
-          console.log('Entró al Listener')
-          Turbo.visit(urlRepetida, {action:"replace"})
+          setTimeout(function (){ Turbo.visit(urlRepetida, {action:"replace"}) }, 100)
         };
         document.addEventListener("turbo:visit", secondVisit)
 
         //Actualización variables
         evento.parentElement.dataset.name = jugador
         //Cambiar select y nombre del jugador cambiado
+        document.getElementById(x[i].dataset.select).value=cambio
 
       } else {
         previos.push(selec)
