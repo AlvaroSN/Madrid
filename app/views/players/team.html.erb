@@ -22,7 +22,7 @@
 
         <!-- Defensas -->
         <div class="flex flex-col w-1/4 justify-around">
-          <div data-pos="li" data-name="<%=current_user.team.LI%>" class="defense" data-class="defense">
+          <div class="defense" data-pos="li" data-name="<%=current_user.team.LI%>" data-class="defense" data-select="LI">
             <% name = current_user.team.LI %>
             <%= form.collection_select :LI, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -30,7 +30,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="di" data-name="<%=current_user.team.DCI%>" data-class="defense" class="defense">
+          <div class="defense" data-pos="di" data-name="<%=current_user.team.DCI%>" data-class="defense" data-select="DCI">
             <% name = current_user.team.DCI %>
             <%= form.collection_select :DCI, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -38,7 +38,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="dd" data-name="<%=current_user.team.DCD%>" data-class="defense" class="defense">
+          <div class="defense" data-pos="dd" data-name="<%=current_user.team.DCD%>" data-class="defense" data-select="DCD">
             <% name = current_user.team.DCD %>
             <%= form.collection_select :DCD, @defensas, :name, :name, {:prompt => 'Central', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -46,7 +46,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div data-pos="ld" data-name="<%=current_user.team.LD%>" data-class="defense" class="defense">
+          <div class="defense" data-pos="ld" data-name="<%=current_user.team.LD%>" data-class="defense" data-select="LD">
             <% name = current_user.team.LD %>
             <%= form.collection_select :LD, @defensas, :name, :name, {:prompt => 'Lateral', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -58,7 +58,7 @@
 
         <!-- Mediocentros -->
         <div class="flex flex-col w-1/4 justify-around">
-          <div class="midfielders" data-pos="mi" data-name="<%=current_user.team.MCI%>" data-class="midfielders">
+          <div class="midfielders" data-pos="mi" data-name="<%=current_user.team.MCI%>" data-class="midfielders" data-select="MCI">
             <% name = current_user.team.MCI %>
             <%= form.collection_select :MCI, @mediocentros, :name, :name, {:prompt => 'Interior', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -66,7 +66,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div class="midfielders" data-pos="mc" data-name="<%=current_user.team.MD%>" data-class="midfielders">
+          <div class="midfielders" data-pos="mc" data-name="<%=current_user.team.MD%>" data-class="midfielders" data-select="MD">
             <% name = current_user.team.MD %>
             <%= form.collection_select :MD, @mediocentros, :name, :name, {:prompt => 'Pivote', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -74,7 +74,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div class="midfielders" data-pos="md" data-name="<%=current_user.team.MCD%>" data-class="midfielders">
+          <div class="midfielders" data-pos="md" data-name="<%=current_user.team.MCD%>" data-class="midfielders" data-select="MCD">
             <% name = current_user.team.MCD %>
             <%= form.collection_select :MCD, @mediocentros, :name, :name, {:prompt => 'Interior', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -86,7 +86,7 @@
 
         <!-- Delanteros -->
         <div class="flex flex-col w-1/4 justify-around">
-          <div class="attackers" data-pos="ei" data-name="<%=current_user.team.EI%>" data-class="attackers">
+          <div class="attackers" data-pos="ei" data-name="<%=current_user.team.EI%>" data-class="attackers" data-select="EI">
             <% name = current_user.team.EI %>
             <%= form.collection_select :EI, @delanteros, :name, :name, {:prompt => 'Extremo', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -94,7 +94,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div class="attackers" data-pos="dc" data-name="<%=current_user.team.DC%>" data-class="attackers">
+          <div class="attackers" data-pos="dc" data-name="<%=current_user.team.DC%>" data-class="attackers" data-select="DC">
             <% name = current_user.team.DC %>
             <%= form.collection_select :DC, @delanteros, :name, :name, {:prompt => 'Delantero', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>
@@ -102,7 +102,7 @@
               <%= render partial: "jugador", locals:{:n => name} %>
             <% end %>
           </div>
-          <div class="attackers" data-pos="ed" data-name="<%=current_user.team.ED%>" data-class="attackers">
+          <div class="attackers" data-pos="ed" data-name="<%=current_user.team.ED%>" data-class="attackers"  data-select="ED">
             <% name = current_user.team.ED %>
             <%= form.collection_select :ED, @delanteros, :name, :name, {:prompt => 'Extremo', selected: name},
                                        {data: {action: "change->hello#prueba"}}%>

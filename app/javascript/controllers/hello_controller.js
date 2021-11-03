@@ -15,19 +15,19 @@ export default class extends Controller {
     console.log("Ruta cambio: " + dir)
 
     let x = document.getElementsByClassName(evento.parentElement.dataset.class)
-    console.log(x)
+    //console.log(x)
     let selec = ""
     let previos = []
 
     for (let i=0; i<x.length; i++) {
       selec = x[i].children[0].value
-      //if (x[i].children[0] !== event.target)
+
       if (previos.includes(selec)) {
         let posSelec = x[i].dataset.pos
         let cambio = event.target.parentElement.dataset.name
         let urlRepetida = `/players/teamSelected?player=${cambio}&pos=${posSelec}`
         console.log("Ruta sustitución:" + urlRepetida)
-        console.log(" ")
+
         let secondVisit = function () {
           document.removeEventListener("turbo:visit", secondVisit)
           setTimeout(function (){ Turbo.visit(urlRepetida, {action:"replace"}) }, 100)
@@ -36,14 +36,19 @@ export default class extends Controller {
 
         //Actualización variables
         evento.parentElement.dataset.name = jugador
-        //Cambiar select y nombre del jugador cambiado
         document.getElementById(x[i].dataset.select).value=cambio
+        x[i].dataset.name = cambio
 
       } else {
         previos.push(selec)
+        x[i].dataset.name = evento.parentElement.dataset.name
       }
     }
+
+    console.log("El data-name de la posición actual es: " + evento.parentElement.dataset.name)
+    console.log(" ")
     Turbo.visit(dir, {action:"replace"})
+
   }
 
 
